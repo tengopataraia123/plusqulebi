@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ka">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image" href="valux-icon-fit.png" />
+    <title>VALUX</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <a href="#" class="logo-icon"
+            ><img src="valux-fit.png" alt="logo"
+          /></a>
+        </div>
+        <div class="nav-links">
+          <a href="#" class="nav-link">გაცვლა</a>
+          <a href="#" class="nav-link">გუნდი</a>
+          <a href="#" class="nav-link">დახმარება</a>
+        </div>
+        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#" class="mobile-link">გაცვლა</a>
+        <a href="#" class="mobile-link">გუნდი</a>
+        <a href="#" class="mobile-link">დახმარება</a>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Title Section -->
+        <div class="title-section">
+          <h1 class="main-title">
+            გადაცვლე <span class="highlight">PLUS ქულები</span> ლარში
+          </h1>
+          <p class="subtitle">
+            მარტივი, სწრაფი და დაცული გზა თქვენი ლოიალურობის ქულების
+            გადასაცვლელად
+          </p>
+        </div>
+
+        <!-- Toggle Buttons -->
+        <div class="toggle-container">
+          <button
+            class="toggle-btn active"
+            onclick="setActiveTab('exchange')"
+            id="exchangeBtn"
+          >
+            გაცვლა
+          </button>
+          <button class="toggle-btn" onclick="setActiveTab('buy')" id="buyBtn">
+            ყიდვა
+          </button>
+        </div>
+
+        <!-- Exchange Card -->
+        <div class="exchange-card">
+          <p class="instruction-text" id="instructionText">
+            გაცვალეთ თქვენი PLUS ქულები ლარში
+          </p>
+
+          <!-- Phone Number -->
+          <div class="iban-container">
+            <span class="iban-number" id="iban-number">37001056274</span>
+            <button class="copy-btn" onclick="copyPhoneNumber()" id="copyBtn">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path
+                  d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Bonus Info -->
+          <div class="bonus-info">
+            <p>🎉 110% ბონუსი ყველა გაცვლაზე</p>
+          </div>
+
+          <!-- Calculator Button -->
+          <button class="calculator-btn">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+              <line x1="8" y1="6" x2="16" y2="6"></line>
+              <line x1="8" y1="10" x2="16" y2="10"></line>
+              <line x1="8" y1="14" x2="16" y2="14"></line>
+              <line x1="8" y1="18" x2="16" y2="18"></line>
+            </svg>
+            კალკულატორი
+          </button>
+
+          <!-- Input Fields -->
+          <div class="input-group">
+            <label class="input-label" id="pointsLabel">
+              გასაცემი PLUS ქულების რაოდენობა
+            </label>
+            <div class="input-container">
+              <input
+                type="number"
+                id="plusPoints"
+                value="400"
+                oninput="calculateConversion()"
+                class="input-field"
+              />
+              <span class="input-suffix">ქულა</span>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" id="lariLabel"> დარიცხვა ლარში </label>
+            <div class="input-container">
+              <input
+                type="number"
+                id="lariAmount"
+                value="1.10"
+                readonly
+                class="input-field readonly"
+              />
+              <span class="input-suffix">₾</span>
+            </div>
+          </div>
+
+          <!-- Conversion Rate -->
+          <div class="conversion-rate">
+            <p>400 Plus ქულა = 1.10 ₾</p>
+          </div>
+        </div>
+
+        <!-- How It Works Section -->
+        <div class="info-section">
+          <h2 class="info-title">როგორ მუშაობს?</h2>
+          <div class="steps-grid">
+            <div class="step">
+              <div class="step-number">1</div>
+              <h3 class="step-title">დაგვირეკეთ</h3>
+              <p class="step-description">
+                დაურეკეთ მითითებულ ნომერზე და შეგვატყობინეთ ქულების რაოდენობა
+              </p>
+            </div>
+            <div class="step">
+              <div class="step-number">2</div>
+              <h3 class="step-title">დაველით</h3>
+              <p class="step-description">
+                ჩვენი ოპერატორი დააფიქსირებს თქვენს მოთხოვნას
+              </p>
+            </div>
+            <div class="step">
+              <div class="step-number">3</div>
+              <h3 class="step-title">მიიღეთ ფული</h3>
+              <p class="step-description">
+                ლარი გადმოირიცხება თქვენს ანგარიშზე რამდენიმე წუთში
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Online Indicator -->
+    <div class="online-indicator">
+      <div class="online-dot"></div>
+      <span>24/7-ზე ხელმისაწვდომია</span>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
