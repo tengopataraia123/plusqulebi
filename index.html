@@ -1,182 +1,614 @@
 <!DOCTYPE html>
 <html lang="ka">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image" href="valux-icon-fit.png" />
-    <title>VALUX</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image" href="plusqulebi2.png" />
+    <title>PLUS ქულების გადაცვლა</title>
+    <meta
+      name="description"
+      content="იყიდე ან გაყიდე საქართველოს ბანკის PLUS ქულები სწრაფად და უსაფრთხოდ. 24/7 მხარდაჭერა, საუკეთესო კურსი, გამჭვირვალე ტრანზაქციები."
+    />
+    <link rel="stylesheet" type="text/css" href="css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
   </head>
   <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <a href="#" class="logo-icon"
-            ><img src="valux-fit.png" alt="logo"
-          /></a>
-        </div>
-        <div class="nav-links">
-          <a href="#" class="nav-link">გაცვლა</a>
-          <a href="#" class="nav-link">გუნდი</a>
-          <a href="#" class="nav-link">დახმარება</a>
-        </div>
-        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-      <div class="mobile-menu" id="mobileMenu">
-        <a href="#" class="mobile-link">გაცვლა</a>
-        <a href="#" class="mobile-link">გუნდი</a>
-        <a href="#" class="mobile-link">დახმარება</a>
-      </div>
-    </nav>
+    <header class="pbz-header">
+      <div class="container nav">
+        <a href="/" class="brand" aria-label="მთავარ გვერდზე დაბრუნება">
+          <img src="img/plusqulebi2.png" alt="PLUSქულები" class="brand-logo" />
+          <span class="nav-logo">
+            <span class="logo-plus">PLUS</span
+            ><span class="logo-point">ქულები</span>
+          </span>
+        </a>
 
-    <!-- Main Content -->
-    <main class="main-content">
-      <div class="container">
-        <!-- Title Section -->
-        <div class="title-section">
-          <h1 class="main-title">
-            გადაცვლე <span class="highlight">PLUS ქულები</span> ლარში
-          </h1>
-          <p class="subtitle">
-            მარტივი, სწრაფი და დაცული გზა თქვენი ლოიალურობის ქულების
-            გადასაცვლელად
-          </p>
-        </div>
+        <!-- Desktop nav -->
+        <nav class="nav-actions" aria-label="Primary">
+          <a href="#how">როგორ მუშაობს</a>
+          <a href="#faq">ხშირი კითხვები</a>
+          <a href="#contact">კონტაქტი</a>
+          <a class="cta" href="#trade">დაწყება</a>
+        </nav>
 
-        <!-- Toggle Buttons -->
-        <div class="toggle-container">
-          <button
-            class="toggle-btn active"
-            onclick="setActiveTab('exchange')"
-            id="exchangeBtn"
+        <!-- Hamburger (mobile) -->
+        <button
+          class="burger"
+          id="burger"
+          aria-label="მენიუ"
+          aria-expanded="false"
+          aria-controls="drawer"
+        >
+          ☰
+        </button>
+      </div>
+
+      <!-- Mobile drawer -->
+      <div class="drawer" id="drawer" role="dialog" aria-modal="false">
+        <nav class="drawer-inner container" aria-label="Mobile">
+          <a href="#how" class="drawer-link">როგორ მუშაობს</a>
+          <a href="#faq" class="drawer-link">ხშირი კითხვები</a>
+          <a href="#contact" class="drawer-link">კონტაქტი</a>
+          <a href="#trade" class="cta drawer-link">დაწყება</a>
+        </nav>
+      </div>
+    </header>
+    <div class="title-section">
+      <h1 class="main-title" id="trade">
+        გადაცვლე <span class="highlight">PLUS ქულები</span> ლარში
+      </h1>
+    </div>
+    <main class="container">
+      <section class="hero">
+        <div class="card pad">
+          <!-- Tabs -->
+          <div class="tabs" role="tablist" aria-label="Trade mode">
+            <button
+              id="tab-sell"
+              class="tab active"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-sell"
+            >
+              გაყიდვა
+            </button>
+            <button
+              id="tab-buy"
+              class="tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-buy"
+            >
+              ყიდვა
+            </button>
+          </div>
+
+          <div style="margin-top: 30px"></div>
+
+          <!-- BUY panel (Coming soon) -->
+          <div
+            id="panel-buy"
+            class="exchange-offer"
+            role="tabpanel"
+            aria-labelledby="tab-buy"
+            hidden
           >
-            გაცვლა
-          </button>
-          <button class="toggle-btn" onclick="setActiveTab('buy')" id="buyBtn">
-            ყიდვა
-          </button>
-        </div>
+            <div
+              class="card"
+              style="
+                padding: 14px;
+                background: #0e1317;
+                border-radius: 12px;
+                border: 1px dashed rgba(255, 255, 255, 0.18);
+              "
+            >
+              <strong style="color: #ffbd59">მალე დაემატება 🔜</strong>
+              <p class="hint" style="margin-top: 6px">
+                გუნდი მუშაობს უსაფრთხო შეკვეთის ველზე, ფასის ლიმიტებზე და
+                escrow-ზე. დაემატება უახლოეს პერიოდში.
+              </p>
+            </div>
+          </div>
 
-        <!-- Exchange Card -->
-        <div class="exchange-card">
-          <p class="instruction-text" id="instructionText">
-            გაცვალეთ თქვენი PLUS ქულები ლარში
-          </p>
+          <!-- SELL panel (Calculator) -->
+          <div id="panel-sell" role="tabpanel" aria-labelledby="tab-sell">
+            <div class="exchange-offer" style="text-align: center">
+              <p>
+                გამოგზავნეთ მითითებულ პირად ნომერზე ნებისმიერი ოდენობის PLUS
+                ქულა:
+              </p>
+              <button
+                class="copy"
+                id="copyId"
+                title="დააკოპირე პროფილ ID"
+                aria-live="polite"
+              >
+                <strong id="profileId">37001056274</strong>
+                <span aria-hidden="true">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect
+                      x="9"
+                      y="9"
+                      width="13"
+                      height="13"
+                      rx="2"
+                      ry="2"
+                    ></rect>
+                    <path
+                      d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                    ></path>
+                  </svg>
+                </span>
+              </button>
+              <p>მიიღეთ ღირებულების 110% თითოეულ გაცვლაზე</p>
+            </div>
 
-          <!-- Phone Number -->
-          <div class="iban-container">
-            <span class="iban-number" id="iban-number">37001056274</span>
-            <button class="copy-btn" onclick="copyPhoneNumber()" id="copyBtn">
+            <div class="line"></div>
+
+            <button class="calculator-btn" id="openCalc" type="button">
               <svg
-                width="18"
-                height="18"
+                width="20"
+                height="20"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
+                aria-hidden="true"
               >
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                <path
-                  d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
-                ></path>
+                <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+                <line x1="8" y1="6" x2="16" y2="6"></line>
+                <line x1="8" y1="10" x2="16" y2="10"></line>
+                <line x1="8" y1="14" x2="16" y2="14"></line>
+                <line x1="8" y1="18" x2="16" y2="18"></line>
               </svg>
+              კალკულატორი
             </button>
-          </div>
 
-          <!-- Bonus Info -->
-          <div class="bonus-info">
-            <p>🎉 110% ბონუსი ყველა გაცვლაზე</p>
+            <div class="row" role="group" aria-label="Calculator">
+              <div>
+                <label for="plusAmount">Plus ქულების რაოდენობა</label>
+                <input
+                  id="plusAmount"
+                  type="number"
+                  inputmode="numeric"
+                  placeholder="მაგ: 400"
+                  min="0"
+                />
+              </div>
+              <div>
+                <label for="gelAmount">მიიღებ ₾</label>
+                <input id="gelAmount" type="text" placeholder="1.1" readonly />
+              </div>
+            </div>
+            <div class="hint">
+              მიმდინარე კურსი: <span id="rateText">400 Plus → 1.10 ₾</span>
+            </div>
+            <div class="line"></div>
+            <div class="instruction">
+              <a href="#" data-modal-target="#carouselModal">ფოტო ინსტრუქცია</a>
+              <a
+                href="#"
+                data-modal-target="#videoModal"
+                data-video-src="https://www.youtube.com/embed/OliYb7EGpGs?si=jVTYhr2un1rYDeCo"
+                >ვიდეო ინსტრუქცია</a
+              >
+            </div>
           </div>
+        </div>
 
-          <!-- Calculator Button -->
-          <button class="calculator-btn">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
+        <!-- Modal -->
+        <div
+          class="modal"
+          id="carouselModal"
+          aria-hidden="true"
+          role="dialog"
+          aria-label="ფოტო კარუსელი"
+        >
+          <div class="dialog">
+            <div class="header">
+              <h3>ფოტო ინსტრუქცია</h3>
+              <button class="close" data-modal-close aria-label="დახურვა">
+                ✕
+              </button>
+            </div>
+
+            <div class="viewport">
+              <div class="track" id="track">
+                <!-- Slide 1 -->
+                <section class="slide">
+                  <figure class="media">
+                    <img src="img/exp1.png" alt="მთიანი პეიზაჟი" />
+                  </figure>
+                  <div class="text">
+                    <h4>ეტაპი I - მთავარი გვერდი</h4>
+                    <p>1. გახსენით საქართველოს ბანკის აპლიკაცია</p>
+                    <p>
+                      2. მთავარ გვერდზე შენიშნავთ ლოიალურობის ქვევით მოცემულ
+                      <strong>"PLUS ქულებს"</strong> ისრით მითითებულ ადგილას და
+                      დააჭირეთ.
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Slide 2 -->
+                <section class="slide">
+                  <figure class="media">
+                    <img src="img/exp2.png" alt="ტბა და მთა" />
+                  </figure>
+                  <div class="text">
+                    <h4>ეტაპი II - PLUS ქულების გვერდი</h4>
+                    <p>
+                      1. დააჭირეთ ისრით მითითებულ ღილაკს
+                      <strong>"გადარიცხვა"</strong>
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Slide 3 -->
+                <section class="slide">
+                  <figure class="media">
+                    <img src="img/exp3.png" alt="ძაღლი მდელოზე" />
+                  </figure>
+                  <div class="text">
+                    <h4>ეტაპი III - PLUS ქულების გადარიცხვის გვერდი</h4>
+                    <p>
+                      1. დააჭირეთ ისრით მითითებულ ველში
+                      <strong>"მიმღების პირადი ნომერი"</strong> და შეიყვანეთ
+                      მოცემული პირადი ნომერი:
+                    </p>
+                    <button
+                      class="copy exp-copy"
+                      id="copyId2"
+                      title="დააკოპირე პროფილ ID"
+                      aria-live="polite"
+                    >
+                      <strong id="profileId">37001056274</strong>
+                      <span aria-hidden="true">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <rect
+                            x="9"
+                            y="9"
+                            width="13"
+                            height="13"
+                            rx="2"
+                            ry="2"
+                          ></rect>
+                          <path
+                            d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                          ></path>
+                        </svg>
+                      </span>
+                    </button>
+                    <p>
+                      2. პირადი ნომრის შეყვანის შემდეგ მიმღების დასახელება
+                      ავტომატურად შეივსება ინიციალებით
+                      <strong>კ.თ. (კარლო თევზაძე)</strong>
+                    </p>
+                    <p>
+                      3. პლიუს ქულების შესავსებ ველში უნდა ჩაწეროთ რამდენი ქულის
+                      გადმორიცხვაც გსურთ
+                    </p>
+                    <p>
+                      4. კომენტარში შეგიძლიათ მიუთითოთ ნებისმიერი, რამ
+                      მაგალითად: <strong>"პირადი გადარიცხვა"</strong>
+                    </p>
+                  </div>
+                </section>
+
+                <!-- Slide 4 -->
+                <section class="slide">
+                  <figure class="media">
+                    <img src="img/exp4.png" alt="ტყე და მდინარე" />
+                  </figure>
+                  <div class="text">
+                    <h4>ეტაპი IV - ბოლო ნაბიჯი: გადარიცხვა</h4>
+                    <p>
+                      1. თუ ყველაფერი ინსტრუქციის მიხედვით შეავსეთ დააჭირეთ
+                      <strong>"გადარიცხვას"</strong> და დაელოდეთ დადასტურებას.
+                    </p>
+                    <p>
+                      2. თუ ტექნიკური ხარვეზის გამო თანხა გადმორიცხვიდან 1 წუთში
+                      ავტომატურად არ აგესახათ, 99% შემთხვევაში მსგავსი რამ არ
+                      მოხდება, მაგრამ თუ მოხდა, არ იდარდოთ მოგვწერეთ ნებისმიერ
+                      დროს ნებისმიერ საკონტაქტო არხზე და მაშინვე მოვაგვარებთ
+                      პრობლემას და ხელით გადმოგირიცხავთ.
+                    </p>
+                    <p><strong>3. საკონტაქტო საშუალებები:</strong></p>
+                    <p>T: 597 11 81 75 (Whatsapp, Viber)</p>
+                    <div class="social-networks">
+                      <a
+                        href="https://www.facebook.com/karlo.tevzadze/"
+                        target="_blank"
+                      >
+                        <img src="img/facebook.png" alt="facebook" />
+                      </a>
+                      <a
+                        href="https://www.linkedin.com/in/karlo-tevzadze-b301b0175/"
+                        target="_blank"
+                      >
+                        <img src="img/linkedin.png" alt="linkedin" />
+                      </a>
+                      <a
+                        href="https://t.me/bitcoin_dca_with_karl"
+                        target="_blank"
+                      >
+                        <img src="img/telegram.png" alt="telegram" />
+                      </a>
+                      <a
+                        href="https://www.instagram.com/bitcoindcawithkarl?igsh=ajA3OTMza3FrMHV1"
+                        target="_blank"
+                      >
+                        <img src="img/instagram.png" alt="instagram" />
+                      </a>
+                      <a
+                        href="https://www.youtube.com/@BitcoinDCAwithKarl"
+                        target="_blank"
+                      >
+                        <img src="img/youtube.png" alt="youtube" /> </a
+                      ><a
+                        href="https://www.tiktok.com/@bitcoindcawithkarl?_t=ZS-8zEP84GrMxO&_r=1"
+                        target="_blank"
+                      >
+                        <img src="img/tiktok.png" alt="tik-tok" />
+                      </a>
+                    </div>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Controls (მხოლოდ მანუალური, ავტოპლეი არ არის) -->
+              <button class="ctrl prev" id="prev" aria-label="წინა">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M15 6L9 12L15 18"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <button class="ctrl next" id="next" aria-label="შემდეგი">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M9 6L15 12L9 18"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- ნავიგაციის დოთები (სურვილისამებრ) -->
+            <div class="dots" id="dots" aria-label="სლაიდების ნავიგაცია"></div>
+          </div>
+        </div>
+
+        <!-- ===== YouTube Modal ===== -->
+        <div
+          class="modal"
+          id="videoModal"
+          aria-hidden="true"
+          role="dialog"
+          aria-label="ვიდეო მოდალი"
+        >
+          <div class="video-shell">
+            <button class="video-close" data-modal-close aria-label="დახურვა">
+              &times;
+            </button>
+            <div class="video-frame">
+              <!-- საწყისი ცარიელია; ჩაიტვირთება ღილაკის data-video-src-დან -->
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/OliYb7EGpGs?si=jVTYhr2un1rYDeCo"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="card pad">
+          <h3 style="margin: 6px 0 14px 0">ბოლო ტრანზაქციები</h3>
+          <div class="list" id="trades"></div>
+          <div class="hint" style="margin-top: 8px">
+            * გასაჩივრება/ვერიფიკაცია – 24/7
+          </div>
+        </div>
+      </section>
+
+      <section id="how" class="two">
+        <div class="card pad wrap clearfix">
+          <h3>ვინ ვართ</h3>
+          <img
+            class="wrap-left"
+            src="img/karlo.jpg"
+            alt="სურათის მოკლე აღწერა"
+          />
+          <p>კარლო თევზაძე (პ/ნ: 37001056274)</p>
+          <p>
+            საიტის ადმინისტრატორი. მესამე წელი დაიწყო, რაც PLUS ქულებს ვუნაღდებ
+            მომხმარებელს და გადავწყვიტე ამ პროცესის ავტომატიზაცია. ნებისმიერი
+            პრობლემის შემთხვევაში შეგიძლიათ დამიკავშირდეთ.
+          </p>
+          <p>T: 597 11 81 75 (Whatsapp, Viber)</p>
+          <div class="social-networks">
+            <a href="https://www.facebook.com/karlo.tevzadze/" target="_blank">
+              <img src="img/facebook.png" alt="facebook" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/karlo-tevzadze-b301b0175/"
+              target="_blank"
             >
-              <rect x="4" y="2" width="16" height="20" rx="2"></rect>
-              <line x1="8" y1="6" x2="16" y2="6"></line>
-              <line x1="8" y1="10" x2="16" y2="10"></line>
-              <line x1="8" y1="14" x2="16" y2="14"></line>
-              <line x1="8" y1="18" x2="16" y2="18"></line>
-            </svg>
-            კალკულატორი
-          </button>
-
-          <!-- Input Fields -->
-          <div class="input-group">
-            <label class="input-label" id="pointsLabel">
-              გასაცემი PLUS ქულების რაოდენობა
-            </label>
-            <div class="input-container">
-              <input
-                type="number"
-                id="plusPoints"
-                value="400"
-                oninput="calculateConversion()"
-                class="input-field"
-              />
-              <span class="input-suffix">ქულა</span>
-            </div>
-          </div>
-
-          <div class="input-group">
-            <label class="input-label" id="lariLabel"> დარიცხვა ლარში </label>
-            <div class="input-container">
-              <input
-                type="number"
-                id="lariAmount"
-                value="1.10"
-                readonly
-                class="input-field readonly"
-              />
-              <span class="input-suffix">₾</span>
-            </div>
-          </div>
-
-          <!-- Conversion Rate -->
-          <div class="conversion-rate">
-            <p>400 Plus ქულა = 1.10 ₾</p>
+              <img src="img/linkedin.png" alt="linkedin" />
+            </a>
+            <a href="https://t.me/bitcoin_dca_with_karl" target="_blank">
+              <img src="img/telegram.png" alt="telegram" />
+            </a>
+            <a
+              href="https://www.instagram.com/bitcoindcawithkarl?igsh=ajA3OTMza3FrMHV1"
+              target="_blank"
+            >
+              <img src="img/instagram.png" alt="instagram" />
+            </a>
+            <a
+              href="https://www.youtube.com/@BitcoinDCAwithKarl"
+              target="_blank"
+            >
+              <img src="img/youtube.png" alt="youtube" /> </a
+            ><a
+              href="https://www.tiktok.com/@bitcoindcawithkarl?_t=ZS-8zEP84GrMxO&_r=1"
+              target="_blank"
+            >
+              <img src="img/tiktok.png" alt="tik-tok" />
+            </a>
           </div>
         </div>
+        <div class="card pad">
+          <h3>როგორ მუშაობს?</h3>
+          <ol class="howtoinstruction">
+            <li>
+              <b>PLUS</b> ქულების გაყიდვის შემთხვევაში იხილეთ
+              <a data-modal-target="#carouselModal">ფოტო</a> ან
+              <a
+                data-modal-target="#videoModal"
+                data-video-src="https://www.youtube.com/embed/OliYb7EGpGs?si=jVTYhr2un1rYDeCo"
+                >ვიდეო</a
+              >
+              ინსტრუქცია.
+            </li>
+            <li>
+              მიიღე ზუსტი თანხა ლარში ავტომატურად მაქსიმუმ 1 წუთში, იმ ადამიანის
+              სახელზე ვისგანაც დაგვირიცხავთ ქულებს.
+            </li>
+            <li>
+              თუ ტექნიკური ხარვეზი დაფიქსირდა და 1 წუთში არ დაგერიცხათ თანხა.
+              გვიკავშირდებით ნებისმიერ ცხელ ხაზზე და მალევე ვაგვარებთ პრობლემას.
+            </li>
+            <!-- <li>
+              PLUS ქულების ყიდვის შემთხვევაში გვირიცხავთ თანხას მითითებულ
+              ანგარიშზე და კომენტარში უთითებთ პირად ნომერს სადაც გინდათ, რომ
+              ქულები დაგერიცხოთ (მალე დაემატება)
+            </li>
+            <li>ანალოგიურად ავტომატურად 1 წუთში დაგერიცხებათ PLUS ქულები.</li> -->
+          </ol>
 
-        <!-- How It Works Section -->
-        <div class="info-section">
-          <h2 class="info-title">როგორ მუშაობს?</h2>
-          <div class="steps-grid">
-            <div class="step">
-              <div class="step-number">1</div>
-              <h3 class="step-title">დაგვირეკეთ</h3>
-              <p class="step-description">
-                დაურეკეთ მითითებულ ნომერზე და შეგვატყობინეთ ქულების რაოდენობა
-              </p>
-            </div>
-            <div class="step">
-              <div class="step-number">2</div>
-              <h3 class="step-title">დაველით</h3>
-              <p class="step-description">
-                ჩვენი ოპერატორი დააფიქსირებს თქვენს მოთხოვნას
-              </p>
-            </div>
-            <div class="step">
-              <div class="step-number">3</div>
-              <h3 class="step-title">მიიღეთ ფული</h3>
-              <p class="step-description">
-                ლარი გადმოირიცხება თქვენს ანგარიშზე რამდენიმე წუთში
-              </p>
-            </div>
+          <p class="hint">
+            შენახული მონაცემები მინიმალურია და გამოიყენება მხოლოდ თაღლითობის
+            პრევენციისთვის ან სამომავლოდ გამარჯვებულთა გამოსავლენად.
+          </p>
+        </div>
+      </section>
+
+      <section id="faq">
+        <h3>ხშირად დასმული კითხვები</h3>
+        <details>
+          <summary>უსაფრთხოა ქულების გაყიდვა/ყიდვა?</summary>
+          <p>
+            დიახ. 200-ზე მეტ ადამიანთან 50'000 ლარზე მეტი ქულა მაქვს გადაცვლილი
+            ამ დროის განმავლობაში. თუ გადმორიცხვიდან 1 წუთში არ ჩაგერიცხათ თანხა
+            შეგიძლიათ ჩათვალოთ, რომ პროგრამული ხარვეზია, მიკავშირდებით და
+            გიგვარებთ მაშინვე პრობლემას.
+          </p>
+        </details>
+        <details>
+          <summary>რამდენ ხანში აისახება თანხა ანგარიშზე?</summary>
+          <p>
+            მაქსიმუმ 1 წუთი შეიძლება დაჭირდეს. თუ ამ დროში არ ჩაგერიცხათ
+            შეგიძლიათ მოგვწეროთ ან დაგვირეკოთ ნებისმიერ საკონტაქტო არხზე და
+            გიგვარებთ მაშინვე პრობლემას.
+          </p>
+        </details>
+        <details>
+          <summary>როგორ უნდა გავყიდო PLUS ქულები?</summary>
+          <p class="clickable">
+            თქვენ შეგიძლიათ ნახოთ როგორც
+            <a data-modal-target="#carouselModal">ფოტო</a> ასევე
+            <a
+              data-modal-target="#videoModal"
+              data-video-src="https://www.youtube.com/embed/OliYb7EGpGs?si=jVTYhr2un1rYDeCo"
+              >ვიდეო</a
+            >
+            ინსტრუქცია. ინსტრუქცია.
+          </p>
+        </details>
+        <details>
+          <summary>
+            სად დამერიცხება გაყიდული PLUS ქულებიდან მიღებული თანხა?
+          </summary>
+          <p>თანხა მომენტალურად აგესახებად გადმომრიცხავის პირად ანგარიშზე.</p>
+        </details>
+        <details>
+          <summary>რა არის კურსი?</summary>
+          <p>
+            ბაზრის მიხედვით იცვლება. საწყისი მაგალითი: 400 Plus = 1.10 ₾.
+            რეალური კურსი ჩანს კალკულატორში.
+          </p>
+        </details>
+      </section>
+
+      <section id="contact" class="two">
+        <div class="card pad">
+          <h3>კონტაქტი</h3>
+          <p>კარლო თევზაძე (პ/ნ: 37001056274)</p>
+          <p>ტელ: 597 11 81 75</p>
+          <div class="social-networks">
+            <a href="https://www.facebook.com/karlo.tevzadze/" target="_blank">
+              <img src="img/facebook.png" alt="facebook" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/karlo-tevzadze-b301b0175/"
+              target="_blank"
+            >
+              <img src="img/linkedin.png" alt="linkedin" />
+            </a>
+            <a href="https://t.me/bitcoin_dca_with_karl" target="_blank">
+              <img src="img/telegram.png" alt="telegram" />
+            </a>
+            <a
+              href="https://www.instagram.com/bitcoindcawithkarl?igsh=ajA3OTMza3FrMHV1"
+              target="_blank"
+            >
+              <img src="img/instagram.png" alt="instagram" />
+            </a>
+            <a
+              href="https://www.youtube.com/@BitcoinDCAwithKarl"
+              target="_blank"
+            >
+              <img src="img/youtube.png" alt="youtube" /> </a
+            ><a
+              href="https://www.tiktok.com/@bitcoindcawithkarl?_t=ZS-8zEP84GrMxO&_r=1"
+              target="_blank"
+            >
+              <img src="img/tiktok.png" alt="tik-tok" />
+            </a>
           </div>
         </div>
-      </div>
+        <div class="card pad">
+          <h3>პარტნიორი ბიზნესები</h3>
+          <p class="hint"></p>
+        </div>
+      </section>
     </main>
 
     <!-- Online Indicator -->
@@ -185,6 +617,26 @@
       <span>24/7-ზე ხელმისაწვდომია</span>
     </div>
 
-    <script src="script.js"></script>
+    <footer>
+      <div
+        class="container"
+        style="
+          display: flex;
+          justify-content: space-between;
+          gap: 14px;
+          flex-wrap: wrap;
+        "
+      >
+        <div>© <span id="y"></span> PLUSქულები • ყველა უფლება დაცულია</div>
+        <div class="muted">
+          <a href="#">Terms</a> • <a href="#">Privacy</a> •
+          <a href="#">AML/KYC</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script_1.js"></script>
+
+    <script src="js/script_2.js"></script>
   </body>
 </html>
