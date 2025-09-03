@@ -131,6 +131,21 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+// INIT: თუ iframe-ს უკვე აქვს src HTML-ში, გადაიტანე data-src-ში და გამორთე წინასწარი ჩატვირთვა
+document.addEventListener("DOMContentLoaded", () => {
+  const vm = document.getElementById("videoModal");
+  if (!vm) return;
+  const iframe = vm.querySelector("iframe");
+  if (iframe && iframe.src && !iframe.dataset.src) {
+    // ამოვიღოთ ნებისმიერი autoplay=1 და hash, data-src-ში შევინახოთ სუფთა მისამართი
+    const clean = iframe.src
+      .replace(/([?&])autoplay=1/g, "")
+      .replace(/#.*$/, "");
+    iframe.setAttribute("data-src", clean);
+    iframe.removeAttribute("src"); // აღარ ჩაიტვირთება სანამ მოდალს არ გახსნი
+  }
+});
+
 // ===== Carousel Logic (Manual only, loop-enabled) =====
 (function () {
   const track = document.getElementById("track");

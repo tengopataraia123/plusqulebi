@@ -52,8 +52,8 @@ a {
   min-width: 0;
 }
 .brand-logo {
-  height: 30px;
-  width: auto;
+  height: 40px;
+  width: 40px;
   display: block;
 }
 .nav-logo {
@@ -214,7 +214,7 @@ a {
 }
 .tab.active {
   background: var(--brand);
-  color: #062512;
+  color: #fff;
 }
 .line {
   height: 1px;
@@ -271,7 +271,7 @@ input:focus {
 .calculator-btn {
   width: 100%;
   background-color: #ff5722;
-  color: white;
+  color: #fff;
   border: none;
   border-radius: 0.5rem;
   padding: 0.75rem 1.5rem;
@@ -295,7 +295,9 @@ input:focus {
   color: #ff5722;
   font-weight: 500;
 }
-
+.instruction a {
+  cursor: pointer;
+}
 .btn {
   display: inline-flex;
   gap: 10px;
@@ -493,6 +495,7 @@ footer {
 
 .social-networks a img {
   height: 30px;
+  width: 30px;
 }
 
 /* მობილურზე — სურათი ზევით, ტექსტი ქვემოთ */
