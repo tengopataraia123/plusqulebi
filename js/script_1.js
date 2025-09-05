@@ -50,18 +50,21 @@ copyId2.addEventListener("click", () => {
 });
 
 // mock trades
-const trades = [
-  {
-    name: "MARIAM ****",
-    gel: 4.47,
-    plus: 1626,
-    time: "2025-08-15 00:00",
-  },
-  { name: "NIKA ****", gel: 10.57, plus: 3845, time: "2025-08-15 00:00" },
-  { name: "SYED ****", gel: 2.13, plus: 775, time: "2025-08-15 00:00" },
-  { name: "ALEKSI ****", gel: 1.51, plus: 549, time: "2025-08-15 00:00" },
-  { name: "YASH ****", gel: 21.95, plus: 7982, time: "2025-08-15 00:00" },
-];
+var trades = []
+fetch("http://165.227.142.232/lastTrans.json")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json(); // Parse JSON
+  })
+  .then(data => {
+    trades = data
+  })
+  .catch(error => {
+    console.error("Error fetching JSON:", error);
+  });
+
 const list = document.getElementById("trades");
 trades.forEach((t) => {
   const el = document.createElement("div");
