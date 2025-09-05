@@ -51,7 +51,7 @@ copyId2.addEventListener("click", () => {
 
 // mock trades
 var trades = []
-fetch("http://165.227.142.232/lastTrans.json")
+fetch("http://plusqulebi.ge/lastTrans.json")
   .then(response => {
     if (!response.ok) {
       throw new Error("Network response was not ok");
