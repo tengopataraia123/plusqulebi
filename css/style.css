@@ -140,8 +140,8 @@ a {
 }
 @media (max-width: 560px) {
   .brand-logo {
-    height: 26px;
-    width: 26px;
+    height: 30px;
+    width: 30px;
   }
   .nav {
     padding: 10px 0;
@@ -833,7 +833,11 @@ footer {
     width: auto;
   }
   .wa-launcher {
-    right: 12px;
-    bottom: 12px;
+    right: 1rem;
+    bottom: 8rem;
+  }
+  .messenger-widget {
+    right: 1rem;
+    bottom: 4rem;
   }
 }
