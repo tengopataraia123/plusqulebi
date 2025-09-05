@@ -141,6 +141,7 @@ a {
 @media (max-width: 560px) {
   .brand-logo {
     height: 26px;
+    width: 26px;
   }
   .nav {
     padding: 10px 0;
@@ -214,7 +215,7 @@ a {
 }
 .tab.active {
   background: var(--brand);
-  color: #fff;
+  color: var(--text);
 }
 .line {
   height: 1px;
@@ -271,7 +272,7 @@ input:focus {
 .calculator-btn {
   width: 100%;
   background-color: #ff5722;
-  color: #fff;
+  color: var(--text);
   border: none;
   border-radius: 0.5rem;
   padding: 0.75rem 1.5rem;
@@ -433,7 +434,19 @@ footer {
   padding: 30px 0;
   color: var(--muted);
 }
-
+.messenger-widget {
+  position: fixed;
+  z-index: 200;
+  bottom: 5rem;
+  right: 2rem;
+  height: 40px;
+  width: 40px;
+}
+.messenger-widget img,
+.messenger-widget a {
+  height: 40px;
+  width: 40px;
+}
 /* Responsive */
 @media (max-width: 980px) {
   .hero {
@@ -741,5 +754,86 @@ footer {
   }
   .text {
     max-height: 200px;
+  }
+}
+
+.wa-launcher {
+  position: fixed;
+  right: 2rem;
+  bottom: 9rem;
+  z-index: 9999;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  border: 0;
+}
+.wa-launcher img {
+  width: 40px;
+  height: 40px;
+}
+.wa-panel {
+  position: fixed;
+  right: 2rem;
+  bottom: 12rem;
+  z-index: 9999;
+  width: 320px;
+  max-width: calc(100% - 36px);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  display: none;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+.wa-header {
+  background: #25d366;
+  color: #fff;
+  padding: 12px 14px;
+  font-weight: 600;
+}
+.wa-body {
+  padding: 12px 14px;
+  font-size: 14px;
+  color: #0e1317;
+}
+.wa-input {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid #eee;
+  background: #fafafa;
+}
+.wa-input input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+}
+.wa-send {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 0;
+  background: #25d366;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+@media (max-width: 420px) {
+  .wa-panel {
+    right: 8px;
+    left: 8px;
+    width: auto;
+  }
+  .wa-launcher {
+    right: 12px;
+    bottom: 12px;
   }
 }

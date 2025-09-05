@@ -201,3 +201,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
   update();
 })();
+
+// ---- CONFIGURE ME ----
+const WA_NUMBER = "+995597118175"; // ჩაანაცვლე შენი ნომრით (ქვეყნის კოდით, + ნიშნებისა და ჰიფენების გარეშე)
+const DEFAULT_MSG = "გამარჯობა! მაინტერესებს ინფორმაცია…"; // სურვილისამებრ
+
+// ---- WIDGET LOGIC ----
+const panel = document.getElementById("wa-panel");
+const launcher = document.getElementById("wa-launcher");
+const input = document.getElementById("wa-text");
+const send = document.getElementById("wa-send");
+
+function togglePanel(show) {
+  const willShow =
+    typeof show === "boolean" ? show : panel.style.display !== "block";
+  panel.style.display = willShow ? "block" : "none";
+  panel.setAttribute("aria-hidden", willShow ? "false" : "true");
+  if (willShow) setTimeout(() => input.focus(), 50);
+}
+
+function openWhatsApp(text) {
+  const msg = text && text.trim() ? text.trim() : DEFAULT_MSG;
+  const url = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+  window.open(url, "_blank", "noopener");
+}
+
+launcher.addEventListener("click", () => togglePanel());
+send.addEventListener("click", () => openWhatsApp(input.value));
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    openWhatsApp(input.value);
+  }
+});
+
+// სურვილისამებრ: გახსნას პანელი 1-2 წამში
+// setTimeout(()=>togglePanel(true), 1500);
