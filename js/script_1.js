@@ -60,26 +60,26 @@ fetch("http://plusqulebi.ge/lastTrans.json")
   })
   .then(data => {
     trades = data
+    
+  const list = document.getElementById("trades");
+  trades.forEach((t) => {
+    const el = document.createElement("div");
+    el.className = "item";
+    el.innerHTML = `<div><strong>${t.name}</strong><div class="muted">${
+      t.time
+    }</div></div>
+                        <div><div class="muted">PLUS ქულა:</div><strong>${fmt(
+                          t.plus
+                        )}</strong></div>
+                        <div><div class="muted">₾ თანხა:</div><strong>${fmt(
+                          t.gel
+                        )} ₾</strong></div>`;
+    list.appendChild(el);
+  });
   })
   .catch(error => {
     console.error("Error fetching JSON:", error);
   });
-
-const list = document.getElementById("trades");
-trades.forEach((t) => {
-  const el = document.createElement("div");
-  el.className = "item";
-  el.innerHTML = `<div><strong>${t.name}</strong><div class="muted">${
-    t.time
-  }</div></div>
-                      <div><div class="muted">PLUS ქულა:</div><strong>${fmt(
-                        t.plus
-                      )}</strong></div>
-                      <div><div class="muted">₾ თანხა:</div><strong>${fmt(
-                        t.gel
-                      )} ₾</strong></div>`;
-  list.appendChild(el);
-});
 
 // stats
 document.getElementById("statDeals").textContent = trades.length;
