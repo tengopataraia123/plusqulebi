@@ -252,6 +252,10 @@ input:focus {
   font-size: 12px;
   color: var(--muted);
 }
+.partners-card a {
+  color: #ff5722;
+  cursor: pointer;
+}
 .copy {
   display: inline-flex;
   gap: 8px;
@@ -743,7 +747,17 @@ footer {
 .dot[aria-current="true"] {
   background: #fff;
 }
-
+.explain > section {
+  padding: 10px 0;
+}
+.explain {
+  max-width: 800px;
+  margin: auto;
+}
+.explain h2,
+h3 {
+  text-align: center;
+}
 /* Responsive */
 @media (max-width: 720px) {
   .slide {
