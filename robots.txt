@@ -1,0 +1,43 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://plusqulebi.ge/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all search engines to index the site
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Block access to sensitive areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /js/script_*.js
+
+# Allow access to important resources
+Allow: /css/
+Allow: /img/
+Allow: /fonts/
+Allow: /js/text-content.js
+Allow: /js/seo-optimization.js
+
+# Host declaration
+Host: https://plusqulebi.ge

@@ -1,0 +1,35 @@
+{
+  "name": "Plusqulebi - PLUS Points Exchange",
+  "short_name": "Plusqulebi",
+  "description": "Exchange Bank of Georgia PLUS points instantly for Lari. 24/7 support, best rates, secure transactions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1C2331",
+  "theme_color": "#1C2331",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "ka",
+  "icons": [
+    {
+      "src": "img/plusqulebi2.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/plusqulebi2.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["finance", "business", "utilities"],
+  "screenshots": [
+    {
+      "src": "img/banner.webp",
+      "sizes": "1200x630",
+      "type": "image/webp",
+      "form_factor": "wide"
+    }
+  ]
+}
