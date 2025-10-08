@@ -1,83 +1,125 @@
-# Advanced SEO and Performance Optimization for Plusqulebi
+# ----------------------------
+# PLUSQULEBI.GE - Optimized Nginx Configuration
+# ----------------------------
 
-# Enable compression
-<IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/plain
-    AddOutputFilterByType DEFLATE text/html
-    AddOutputFilterByType DEFLATE text/xml
-    AddOutputFilterByType DEFLATE text/css
-    AddOutputFilterByType DEFLATE application/xml
-    AddOutputFilterByType DEFLATE application/xhtml+xml
-    AddOutputFilterByType DEFLATE application/rss+xml
-    AddOutputFilterByType DEFLATE application/javascript
-    AddOutputFilterByType DEFLATE application/x-javascript
-    AddOutputFilterByType DEFLATE application/json
-</IfModule>
+# Force redirect from HTTP to HTTPS
+server {
+    listen 80;
+    server_name plusqulebi.ge www.plusqulebi.ge;
+    return 301 https://$host$request_uri;
+}
 
-# Browser Caching
-<IfModule mod_expires.c>
-    ExpiresActive on
-    ExpiresByType text/css "access plus 1 year"
-    ExpiresByType application/javascript "access plus 1 year"
-    ExpiresByType image/png "access plus 1 year"
-    ExpiresByType image/jpg "access plus 1 year"
-    ExpiresByType image/jpeg "access plus 1 year"
-    ExpiresByType image/gif "access plus 1 year"
-    ExpiresByType image/webp "access plus 1 year"
-    ExpiresByType image/svg+xml "access plus 1 year"
-    ExpiresByType font/woff "access plus 1 year"
-    ExpiresByType font/woff2 "access plus 1 year"
-    ExpiresByType font/ttf "access plus 1 year"
-    ExpiresByType font/eot "access plus 1 year"
-    ExpiresByType application/font-woff "access plus 1 year"
-    ExpiresByType application/font-woff2 "access plus 1 year"
-</IfModule>
+# Main HTTPS Server Block
+server {
+    listen 443 ssl http2;
+    server_name plusqulebi.ge www.plusqulebi.ge;
 
-# Security Headers
-<IfModule mod_headers.c>
-    Header always set X-Content-Type-Options nosniff
-    Header always set X-Frame-Options DENY
-    Header always set X-XSS-Protection "1; mode=block"
-    Header always set Referrer-Policy "strict-origin-when-cross-origin"
-    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
-    
-    # HSTS (HTTP Strict Transport Security)
-    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-    
-    # Content Security Policy
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com;"
-</IfModule>
+    root /var/www/plusqulebi.ge;   # შეცვალე შენი საიტის root დირექტორია
+    index index.html index.php;
 
-# Redirect to HTTPS
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{HTTPS} off
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-</IfModule>
+    # SSL Certificates (შეცვალე შენს შესაბამის ფაილებად)
+    ssl_certificate /etc/letsencrypt/live/plusqulebi.ge/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/plusqulebi.ge/privkey.pem;
+    ssl_trusted_certificate /etc/letsencrypt/live/plusqulebi.ge/chain.pem;
 
-# Remove trailing slashes
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)/$ /$1 [R=301,L]
-</IfModule>
+    # SSL Optimization
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers on;
 
-# Custom error pages
-ErrorDocument 404 /404.html
-ErrorDocument 500 /500.html
+    # ----------------------------
+    # GZIP Compression
+    # ----------------------------
+    gzip on;
+    gzip_comp_level 6;
+    gzip_min_length 256;
+    gzip_vary on;
+    gzip_proxied any;
+    gzip_types
+        text/plain
+        text/css
+        text/javascript
+        application/javascript
+        application/x-javascript
+        application/json
+        application/xml
+        application/xml+rss
+        image/svg+xml
+        font/woff
+        font/woff2;
 
-# Prevent access to sensitive files
-<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|conf)$">
-    Order Allow,Deny
-    Deny from all
-</FilesMatch>
+    # ----------------------------
+    # Browser Caching
+    # ----------------------------
+    location ~* \.(jpg|jpeg|png|gif|svg|webp|ico|css|js|woff|woff2|ttf|eot)$ {
+        expires 1y;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+        access_log off;
+    }
 
-# Optimize for Core Web Vitals
-<IfModule mod_headers.c>
-    # Preload critical resources
-    <FilesMatch "\.(css|js|woff2?)$">
-        Header set Link "</css/style.css>; rel=preload; as=style"
-        Header set Link "</js/text-content.js>; rel=preload; as=script"
-        Header set Link "</img/banner.webp>; rel=preload; as=image"
-    </FilesMatch>
-</IfModule>
+    location ~* \.(html|htm)$ {
+        expires 1h;
+        add_header Cache-Control "no-cache";
+    }
+
+    # ----------------------------
+    # Security Headers
+    # ----------------------------
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-Frame-Options "DENY" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header Permissions-Policy "geolocation=(), microphone=(), camera=()" always;
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+
+    # ----------------------------
+    # Content Security Policy (CSP)
+    # ----------------------------
+    add_header Content-Security-Policy "default-src 'self'; 
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com https://www.googletagmanager.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com;
+        img-src 'self' data: https:;
+        connect-src 'self' https://www.google-analytics.com;
+        frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com;" always;
+
+    # ----------------------------
+    # Redirect URLs without trailing slash
+    # ----------------------------
+    if ($request_uri ~ "^(.+)/+$") {
+        return 301 $1;
+    }
+
+    # ----------------------------
+    # Error Pages
+    # ----------------------------
+    error_page 404 /404.html;
+    error_page 500 502 503 504 /500.html;
+
+    location = /404.html {
+        root /var/www/plusqulebi.ge;
+        internal;
+    }
+
+    location = /500.html {
+        root /var/www/plusqulebi.ge;
+        internal;
+    }
+
+    # ----------------------------
+    # Block Access to Sensitive Files
+    # ----------------------------
+    location ~ /\.(htaccess|htpasswd|ini|log|conf|sql|sh)$ {
+        deny all;
+    }
+
+    # ----------------------------
+    # PHP Support (თუ იყენებ)
+    # ----------------------------
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php8.2-fpm.sock; # შეასწორე შენი PHP ვერსიის მიხედვით
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}
