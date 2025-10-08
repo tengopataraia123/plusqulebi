@@ -1,8 +1,8 @@
-# ----------------------------
-# PLUSQULEBI.GE - Optimized Nginx Configuration
-# ----------------------------
+# -------------------------------------
+# PLUSQULEBI.GE — Static Site Optimized Config
+# -------------------------------------
 
-# Force redirect from HTTP to HTTPS
+# Redirect all HTTP requests to HTTPS
 server {
     listen 80;
     server_name plusqulebi.ge www.plusqulebi.ge;
@@ -14,21 +14,20 @@ server {
     listen 443 ssl http2;
     server_name plusqulebi.ge www.plusqulebi.ge;
 
-    root /var/www/plusqulebi.ge;   # შეცვალე შენი საიტის root დირექტორია
-    index index.html index.php;
+    root /var/www/plusqulebi.ge;   # <--- შეცვალე შენი საიტის ფოლდერად
+    index index.html;
 
-    # SSL Certificates (შეცვალე შენს შესაბამის ფაილებად)
+    # SSL Certificates (Let's Encrypt example)
     ssl_certificate /etc/letsencrypt/live/plusqulebi.ge/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/plusqulebi.ge/privkey.pem;
     ssl_trusted_certificate /etc/letsencrypt/live/plusqulebi.ge/chain.pem;
 
-    # SSL Optimization
     ssl_protocols TLSv1.2 TLSv1.3;
     ssl_ciphers HIGH:!aNULL:!MD5;
     ssl_prefer_server_ciphers on;
 
     # ----------------------------
-    # GZIP Compression
+    # ✅ GZIP Compression
     # ----------------------------
     gzip on;
     gzip_comp_level 6;
@@ -43,13 +42,12 @@ server {
         application/x-javascript
         application/json
         application/xml
-        application/xml+rss
         image/svg+xml
         font/woff
         font/woff2;
 
     # ----------------------------
-    # Browser Caching
+    # ✅ Browser Caching (Long-Term)
     # ----------------------------
     location ~* \.(jpg|jpeg|png|gif|svg|webp|ico|css|js|woff|woff2|ttf|eot)$ {
         expires 1y;
@@ -57,13 +55,14 @@ server {
         access_log off;
     }
 
+    # HTML cache only for short term
     location ~* \.(html|htm)$ {
         expires 1h;
         add_header Cache-Control "no-cache";
     }
 
     # ----------------------------
-    # Security Headers
+    # ✅ Security Headers
     # ----------------------------
     add_header X-Content-Type-Options "nosniff" always;
     add_header X-Frame-Options "DENY" always;
@@ -73,9 +72,9 @@ server {
     add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
 
     # ----------------------------
-    # Content Security Policy (CSP)
+    # ✅ Content Security Policy (CSP)
     # ----------------------------
-    add_header Content-Security-Policy "default-src 'self'; 
+    add_header Content-Security-Policy "default-src 'self';
         script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com https://www.googletagmanager.com;
         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
         font-src 'self' https://fonts.gstatic.com;
@@ -84,14 +83,14 @@ server {
         frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com;" always;
 
     # ----------------------------
-    # Redirect URLs without trailing slash
+    # ✅ Remove Trailing Slashes
     # ----------------------------
     if ($request_uri ~ "^(.+)/+$") {
         return 301 $1;
     }
 
     # ----------------------------
-    # Error Pages
+    # ✅ Error Pages
     # ----------------------------
     error_page 404 /404.html;
     error_page 500 502 503 504 /500.html;
@@ -107,19 +106,9 @@ server {
     }
 
     # ----------------------------
-    # Block Access to Sensitive Files
+    # ✅ Block Access to Sensitive Files
     # ----------------------------
     location ~ /\.(htaccess|htpasswd|ini|log|conf|sql|sh)$ {
         deny all;
-    }
-
-    # ----------------------------
-    # PHP Support (თუ იყენებ)
-    # ----------------------------
-    location ~ \.php$ {
-        include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/var/run/php/php8.2-fpm.sock; # შეასწორე შენი PHP ვერსიის მიხედვით
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        include fastcgi_params;
     }
 }
