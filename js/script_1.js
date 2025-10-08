@@ -82,13 +82,22 @@ fetch("lastTrans.json")
   });
 
 // stats
-document.getElementById("statDeals").textContent = trades.length;
-document.getElementById("statPoints").textContent = fmt(
-  trades.reduce((a, b) => a + b.plus, 0)
-);
+const statDealsEl = document.getElementById("statDeals");
+const statPointsEl = document.getElementById("statPoints");
+if (statDealsEl) {
+  statDealsEl.textContent = trades.length;
+}
+if (statPointsEl) {
+  statPointsEl.textContent = fmt(
+    trades.reduce((a, b) => a + b.plus, 0)
+  );
+}
 
 // misc
 updateRateText();
 
 calculate();
-document.getElementById("y").textContent = new Date().getFullYear();
+const yearEl = document.getElementById("y");
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
