@@ -46,10 +46,13 @@ const translations = {
     "faq.where_money":
       "სად დამერიცხება გაყიდული PLUS ქულებიდან მიღებული თანხა?",
     "faq.where_money_answer":
-      "თანხა მომენტალურად აგესახებათ გადმომრიცხავის პირად ანგარიშზე.",
+      "თანხა დაახლოებით 1 წუთში აგესახებათ გადმომრიცხავის პირად ანგარიშზე.",
     "faq.rate": "რა არის კურსი?",
     "faq.rate_answer":
-      "ბაზრის მიხედვით იცვლება. საწყისი მაგალითი: 400 Plus = 1.10 ₾. რეალური კურსი ჩანს კალკულატორში.",
+      "პერიოდულობის მიხედვით იცვლება. დასაწყისისთვის კურსი არის 400 Plus = 1.10 ₾. კურსი შეგიძლია გადაამოწმოთ ჩვენს კალკულატორზე.",
+    "faq.range": "არსებობს გადმორიცხვის მინიმალური და მაქსიმალური ზღვარი?",
+    "faq.range_answer":
+      "მინიმალური ზღვარი არის 40 PLUS ქულა. უფრო ნაკლებს ნუ გადმორიცხავთ, დღის ბოლოს ყველა 40 ქულაზე ნაკლები გადმორიცხვა უკან ბრუნდება. მაქსიმალური ზღვარი არ არსებობს, მაგრამ შეიძლება მოხდეს ისეთი რამ ბალანსზე თანხა ამოგვეწუროს და დინამიურად შევსება ვერ მოვასწროთ ასეთ შემთხვევაში PLUS ქულები უკან დაგიბრუნდებათ. ნებისმიერი გაუგებრობის შემთხვევაში შეგიძლიათ ჩვენი ნებისმიერი ცხელი ხაზი გამოიყენოთ და დაგვიკავშირდეთ.",
 
     // About section
     "about.how_works": "როგორ მუშაობს?",
@@ -223,10 +226,14 @@ const translations = {
     "faq.where_money":
       "Where will the money from sold PLUS points be credited to me?",
     "faq.where_money_answer":
-      "The amount will be instantly credited to the transferor's personal account.",
+      "The amount will be credited to the transferor's personal account in about 1 minute.",
     "faq.rate": "What is the rate?",
     "faq.rate_answer":
-      "Varies depending on the market. Initial example: 400 Plus = 1.10 ₾. The actual rate is shown in the calculator.",
+      "It varies depending on the period. The starting rate is 400 Plus = 1.10 ₾. You can check the rate on our calculator.",
+    "faq.range": "Is there a minimum and maximum transfer limit?",
+    "faq.range_answer":
+      "The minimum limit is 40 PLUS points. Do not transfer less than that, at the end of the day all transfers less than 40 points will be returned. There is no maximum limit, but it may happen that we run out of money on the balance and we will not be able to replenish dynamically, in which case the PLUS points will be returned to you. In case of any misunderstanding, you can use any of our hotlines and contact us.",
+
     // About section
     "about.how_works": "How it works?",
     "about.step1":
