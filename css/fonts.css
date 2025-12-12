@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "arial";
+  src: url("../fonts/bpg-ingiri-arial-webfont.woff2") format("woff2"),
+       url("../fonts/bpg-ingiri-arial-webfont.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ninoMT";
+  src: url("../fonts/bpg-nino-mtavruli-webfont.woff2") format("woff2"),
+       url("../fonts/bpg-nino-mtavruli-webfont.woff") format("woff");
+  font-display: swap;
+}

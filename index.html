@@ -1,130 +1,612 @@
 <!DOCTYPE html>
 <html lang="ka">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image" href="valux-icon-fit.png" />
-    <title>VALUX</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta
+      name="googlebot"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="author" content="Karlo Tevzadze" />
+    <meta name="copyright" content="© 2025 Plusqulebi. All rights reserved." />
+    <link rel="icon" type="image/webp" href="img/plusqulebi2.webp" />
+
+    <!-- Primary Meta Tags -->
+    <title>
+      PLUS ქულების გაცვლა ლარში | იყიდე და გაყიდე PLUS ქულები - Plusqulebi.ge
+    </title>
+    <meta
+      name="description"
+      content="გადაცვალე საქართველოს ბანკის PLUS ქულები მომენტალურად ლარში. 24/7 მხარდაჭერა, საუკეთესო კურსი, უსაფრთხო ტრანზაქციები. Plusqulebi.ge - შენი სანდო პარტნიორი."
+    />
+    <meta
+      name="keywords"
+      content="PLUS ქულები, პლიუს ქულები, Bank of Georgia, ქულების გაყიდვა, ქულების ყიდვა, ლოიალობის პროგრამა, ბონუს ქულები, ლარი, გაცვლა, საქართველო, ბანკი, ფინანსები"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://plusqulebi.ge/" />
+    <meta
+      property="og:title"
+      content="PLUS ქულების გაცვლა ლარში | Plusqulebi.ge"
+    />
+    <meta
+      property="og:description"
+      content="გადაცვალე საქართველოს ბანკის PLUS ქულები მომენტალურად ლარში. 24/7 მხარდაჭერა, საუკეთესო კურსი, უსაფრთხო ტრანზაქციები."
+    />
+    <meta property="og:image" content="https://plusqulebi.ge/img/banner.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="PLUS ქულების გაცვლა ლარში | Plusqulebi.ge"
+    />
+    <meta property="og:site_name" content="Plusqulebi" />
+    <meta property="og:locale" content="ka_GE" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://plusqulebi.ge/" />
+    <meta
+      name="twitter:title"
+      content="PLUS ქულების გაცვლა ლარში | Plusqulebi.ge"
+    />
+    <meta
+      name="twitter:description"
+      content="გადაცვალე საქართველოს ბანკის PLUS ქულები მომენტალურად ლარში. საუკეთესო კურსი, 24/7 მხარდაჭერა, უსაფრთხო ტრანზაქციები."
+    />
+    <meta
+      name="twitter:image"
+      content="https://plusqulebi.ge/img/banner.webp"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="PLUS ქულების გაცვლა ლარში | Plusqulebi.ge"
+    />
+    <meta name="twitter:site" content="@plusqulebi" />
+    <meta name="twitter:creator" content="@karlotevzadze" />
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#1C2331" />
+    <meta name="msapplication-TileColor" content="#1C2331" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="Plusqulebi" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!-- Language and Region -->
+    <meta name="language" content="ka" />
+    <meta name="geo.region" content="GE" />
+    <meta name="geo.country" content="Georgia" />
+
+    <!-- Business Information -->
+    <meta name="business:contact_data:locality" content="Tbilisi" />
+    <meta name="business:contact_data:region" content="Georgia" />
+    <meta name="business:contact_data:country_name" content="Georgia" />
+    <meta name="business:contact_data:phone_number" content="+995597118175" />
+
+    <!-- Canonical and Manifest -->
+    <link rel="canonical" href="https://plusqulebi.ge/" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" type="text/css" href="css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
   </head>
   <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <a href="#" class="logo-icon"
-            ><img src="valux-fit.png" alt="logo"
-          /></a>
-        </div>
-        <div class="nav-links">
-          <a href="#" class="nav-link">გაცვლა</a>
-          <a href="#" class="nav-link">გუნდი</a>
-          <a href="#" class="nav-link">დახმარება</a>
-        </div>
-        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-      <div class="mobile-menu" id="mobileMenu">
-        <a href="#" class="mobile-link">გაცვლა</a>
-        <a href="#" class="mobile-link">გუნდი</a>
-        <a href="#" class="mobile-link">დახმარება</a>
-      </div>
-    </nav>
+    <header class="pbz-header">
+      <div class="container nav">
+        <a href="/" class="brand" aria-label="">
+          <img
+            src="img/plusqulebi2.webp"
+            alt="Logo"
+            class="brand-logo"
+            loading="lazy"
+            decoding="async"
+            fetchpriority="high"
+          />
+          <span class="nav-logo">
+            <span class="logo-plus">PLUS</span
+            ><span class="logo-point">ქულები</span>
+          </span>
+        </a>
 
-    <!-- Main Content -->
-    <main class="main-content">
-      <div class="container">
-        <!-- Title Section -->
-        <div class="title-section">
-          <h1 class="main-title">
-            გადაცვლე <span class="highlight">PLUS ქულები</span> ლარში
-          </h1>
-          <p class="subtitle">
-            მარტივი, სწრაფი და დაცული გზა თქვენი ლოიალურობის ქულების
-            გადასაცვლელად
-          </p>
-        </div>
+        <!-- Desktop nav -->
+        <div class="header-nav">
+          <div>
+            <div class="toggle-lang" id="languageToggle">
+              <img
+                class="img-lang"
+                src="img/united-kingdom_206592.webp"
+                alt="English language"
+                id="flagImage"
+                loading="lazy"
+              />
+            </div>
+            <nav class="nav-actions" aria-label="Primary">
+              <a href="#how" data-translate="nav.how"></a>
+              <a href="#faq" data-translate="nav.faq"></a>
+              <a href="#contact" data-translate="nav.contact"></a>
 
-        <!-- Toggle Buttons -->
-        <div class="toggle-container">
+              <a class="cta" href="#trade" data-translate="nav.start"></a>
+            </nav>
+          </div>
+
+          <!-- Hamburger (mobile) -->
           <button
-            class="toggle-btn active"
-            onclick="setActiveTab('exchange')"
-            id="exchangeBtn"
+            class="burger"
+            id="burger"
+            aria-label=""
+            aria-expanded="false"
+            aria-controls="drawer"
           >
-            გაცვლა
-          </button>
-          <button class="toggle-btn" onclick="setActiveTab('buy')" id="buyBtn">
-            ყიდვა
+            ☰
           </button>
         </div>
+      </div>
 
-        <!-- Exchange Card -->
-        <div class="exchange-card">
-          <p class="instruction-text" id="instructionText">
-            გაცვალეთ თქვენი PLUS ქულები ლარში
-          </p>
+      <!-- Mobile drawer -->
+      <div class="drawer" id="drawer" role="dialog" aria-modal="false">
+        <nav class="drawer-inner container" aria-label="Mobile">
+          <a href="#how" class="drawer-link" data-translate="nav.how"></a>
+          <a href="#faq" class="drawer-link" data-translate="nav.faq"></a>
+          <a
+            href="#contact"
+            class="drawer-link"
+            data-translate="nav.contact"
+          ></a>
 
-          <!-- Phone Number -->
-          <div class="iban-container">
-            <span class="iban-number" id="iban-number">37001056274</span>
-            <button class="copy-btn" onclick="copyPhoneNumber()" id="copyBtn">
+          <a
+            href="#trade"
+            class="cta drawer-link"
+            data-translate="nav.start"
+          ></a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="title-section">
+      <h1 class="main-title" id="trade" data-translate="main.title"></h1>
+    </div>
+
+    <main class="container">
+      <section class="hero">
+        <div class="card pad">
+          <!-- Tabs -->
+          <div class="tabs" role="tablist" aria-label="Trade mode">
+            <button
+              id="tab-sell"
+              class="tab active"
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-sell"
+              data-translate="tabs.sell"
+            ></button>
+            <button
+              id="tab-buy"
+              class="tab"
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-buy"
+              data-translate="tabs.buy"
+            ></button>
+          </div>
+
+          <div style="margin-top: 30px"></div>
+
+          <!-- BUY panel (Coming soon) -->
+          <div
+            id="panel-buy"
+            class="exchange-offer"
+            role="tabpanel"
+            aria-labelledby="tab-buy"
+            hidden
+          >
+            <div
+              class="card"
+              style="
+                padding: 14px;
+                background: #0e1317;
+                border-radius: 12px;
+                border: 1px dashed rgba(255, 255, 255, 0.18);
+              "
+            >
+              <strong
+                style="color: #ffbd59"
+                data-translate="coming_soon.title"
+              ></strong>
+              <p
+                class="hint"
+                style="margin-top: 6px"
+                data-translate="coming_soon.description"
+              ></p>
+            </div>
+          </div>
+
+          <!-- SELL panel (Calculator) -->
+          <div id="panel-sell" role="tabpanel" aria-labelledby="tab-sell">
+            <div class="exchange-offer">
+              <p data-translate="calc.send_points"></p>
+              <button
+                class="copy"
+                id="copyId"
+                title=""
+                data-translate-title="calc.copy_id"
+                aria-live="polite"
+              >
+                <strong id="profileId">37001056274</strong>
+                <span aria-hidden="true">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect
+                      x="9"
+                      y="9"
+                      width="13"
+                      height="13"
+                      rx="2"
+                      ry="2"
+                    ></rect>
+                    <path
+                      d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                    ></path>
+                  </svg>
+                </span>
+              </button>
+              <p data-translate="calc.receive_value"></p>
+            </div>
+
+            <div class="line"></div>
+
+            <button class="calculator-btn" id="openCalc" type="button">
               <svg
-                width="18"
-                height="18"
+                width="20"
+                height="20"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
+                aria-hidden="true"
               >
-                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                <path
-                  d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
-                ></path>
+                <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+                <line x1="8" y1="6" x2="16" y2="6"></line>
+                <line x1="8" y1="10" x2="16" y2="10"></line>
+                <line x1="8" y1="14" x2="16" y2="14"></line>
+                <line x1="8" y1="18" x2="16" y2="18"></line>
               </svg>
+              <span data-translate="calc.calculator"></span>
             </button>
-          </div>
 
+<<<<<<< HEAD
           <!-- Bonus Info -->
           <div class="bonus-info">
             <p>🎉 101% ყველა გაცვლაზე</p>
+=======
+            <div class="row" role="group" aria-label="Calculator">
+              <div>
+                <label
+                  for="plusAmount"
+                  data-translate="calc.plus_amount"
+                ></label>
+                <input
+                  id="plusAmount"
+                  type="number"
+                  inputmode="numeric"
+                  placeholder=""
+                  data-translate-placeholder="calc.plus_placeholder"
+                  min="0"
+                />
+              </div>
+              <div>
+                <label for="gelAmount" data-translate="calc.gel_amount"></label>
+                <input id="gelAmount" type="text" placeholder="1.01" readonly />
+              </div>
+            </div>
+            <div class="hint">
+              <span data-translate="calc.current_rate"></span>
+              <span id="rateText">400 Plus → 1.01 ₾</span>
+            </div>
+            <div class="line"></div>
+            <div class="instruction">
+              <a
+                href="#trade"
+                data-modal-target="#carouselModal"
+                data-translate="calc.photo_instruction"
+              ></a>
+              <a
+                href="#trade"
+                data-modal-target="#videoModal"
+                data-video-src="https://www.youtube-nocookie.com/embed/BiqPQ8PFgHw?rel=0"
+                data-translate="calc.video_instruction"
+              ></a>
+            </div>
+>>>>>>> 06e3eb953c56185b2c822f895ce4a3e76a38ec1e
           </div>
+        </div>
 
-          <!-- Calculator Button -->
-          <button class="calculator-btn">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
+        <!-- Modal -->
+        <div
+          class="modal"
+          id="carouselModal"
+          aria-hidden="true"
+          role="dialog"
+          aria-label=""
+        >
+          <div class="dialog">
+            <div class="header">
+              <h3 data-translate="modal.photo_title"></h3>
+              <button class="close" data-modal-close aria-label="">✕</button>
+            </div>
+
+            <div class="viewport">
+              <div class="track" id="track">
+                <!-- Slide 1 -->
+                <section class="slide">
+                  <figure class="media">
+                    <img src="img/exp1.webp" alt="Main page" loading="lazy" />
+                  </figure>
+                  <div class="text">
+                    <h4 data-translate="modal.step1_title"></h4>
+                    <p data-translate="modal.step1_text1"></p>
+                    <p data-translate="modal.step1_text2"></p>
+                  </div>
+                </section>
+
+                <!-- Slide 2 -->
+                <section class="slide">
+                  <figure class="media">
+                    <img
+                      src="img/exp2.webp"
+                      alt="Plus Loialty Page"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <div class="text">
+                    <h4 data-translate="modal.step2_title"></h4>
+                    <p data-translate="modal.step2_text1"></p>
+                  </div>
+                </section>
+
+                <!-- Slide 3 -->
+                <section class="slide">
+                  <figure class="media">
+                    <img
+                      src="img/exp3.webp"
+                      alt="Transfer Plus Points Page"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <div class="text">
+                    <h4 data-translate="modal.step3_title"></h4>
+                    <p data-translate="modal.step3_text1"></p>
+                    <button
+                      class="copy exp-copy"
+                      id="copyId2"
+                      title=""
+                      data-translate-title="calc.copy_id"
+                      aria-live="polite"
+                    >
+                      <strong id="profileId">37001056274</strong>
+                      <span aria-hidden="true">
+                        <svg
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                        >
+                          <rect
+                            x="9"
+                            y="9"
+                            width="13"
+                            height="13"
+                            rx="2"
+                            ry="2"
+                          ></rect>
+                          <path
+                            d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                          ></path>
+                        </svg>
+                      </span>
+                    </button>
+                    <p data-translate="modal.step3_text2"></p>
+                    <p data-translate="modal.step3_text3"></p>
+                    <p data-translate="modal.step3_text4"></p>
+                  </div>
+                </section>
+
+                <!-- Slide 4 -->
+                <section class="slide">
+                  <figure class="media">
+                    <img
+                      src="img/exp4.webp"
+                      alt="How to fill form"
+                      loading="lazy"
+                    />
+                  </figure>
+                  <div class="text">
+                    <h4 data-translate="modal.step4_title"></h4>
+                    <p data-translate="modal.step4_text1"></p>
+                    <p data-translate="modal.step4_text2"></p>
+                    <p data-translate="modal.step4_text3"></p>
+                    <p data-translate="modal.contact_phone"></p>
+                    <div class="social-networks">
+                      <a
+                        href="https://www.facebook.com/plusqulebi/"
+                        target="_blank"
+                      >
+                        <img
+                          src="img/facebook.webp"
+                          alt="facebook logo"
+                          loading="lazy"
+                        />
+                      </a>
+                      <a
+                        href="https://www.linkedin.com/in/karlo-tevzadze-b301b0175/"
+                        target="_blank"
+                      >
+                        <img
+                          src="img/linkedin.webp"
+                          alt="linkedin logo"
+                          loading="lazy"
+                        />
+                      </a>
+                      <a
+                        href="https://t.me/bitcoin_dca_with_karl"
+                        target="_blank"
+                      >
+                        <img
+                          src="img/telegram.webp"
+                          alt="telegram logo"
+                          loading="lazy"
+                        />
+                      </a>
+                      <a
+                        href="https://www.instagram.com/plusqulebi.ge/"
+                        target="_blank"
+                      >
+                        <img
+                          src="img/instagram.webp"
+                          alt="instagram logo"
+                          loading="lazy"
+                        />
+                      </a>
+                      <a
+                        href="https://www.youtube.com/@plusqulebi"
+                        target="_blank"
+                      >
+                        <img
+                          src="img/youtube.webp"
+                          alt="youtube logo"
+                          loading="lazy"
+                        />
+                      </a>
+                      <a
+                        href="https://www.tiktok.com/@plusqulebi.ge"
+                        target="_blank"
+                      >
+                        <img
+                          src="img/tiktok.webp"
+                          alt="tik-tok logo"
+                          loading="lazy"
+                        />
+                      </a>
+                    </div>
+                  </div>
+                </section>
+              </div>
+
+              <!-- Controls -->
+              <button class="ctrl prev" id="prev" aria-label="prev">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M15 6L9 12L15 18"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <button class="ctrl next" id="next" aria-label="next">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M9 6L15 12L9 18"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Navigation dots -->
+            <div class="dots" id="dots" aria-label=""></div>
+          </div>
+        </div>
+
+        <!-- YouTube Modal -->
+        <div
+          class="modal"
+          id="videoModal"
+          aria-hidden="true"
+          role="dialog"
+          aria-label=""
+        >
+          <div class="video-shell">
+            <button class="video-close" data-modal-close aria-label="">
+              &times;
+            </button>
+            <div class="video-frame">
+              <iframe
+                width="100%"
+                height="100%"
+                src=""
+                data-src="https://www.youtube-nocookie.com/embed/BiqPQ8PFgHw?rel=0"
+                title="YouTube video player"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="card pad">
+          <h3 style="margin: 6px 0 14px 0" data-translate="recent.title"></h3>
+          <div class="list" id="trades"></div>
+          <div class="hint" data-translate="recent.hint"></div>
+        </div>
+      </section>
+
+      <section id="how" class="two">
+        <div class="card pad wrap clearfix">
+          <h3 data-translate="about.who"></h3>
+          <img
+            class="wrap-left"
+            src="img/karlo.webp"
+            alt="administrator"
+            loading="lazy"
+          />
+          <p data-translate="contact.name"></p>
+          <p data-translate="about.admin"></p>
+          <p data-translate="contact.phone"></p>
+          <div class="social-networks">
+            <a href="https://www.facebook.com/karlo.tevzadze/" target="_blank">
+              <img src="img/facebook.webp" alt="facebook logo" loading="lazy" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/karlo-tevzadze-b301b0175/"
+              target="_blank"
             >
-              <rect x="4" y="2" width="16" height="20" rx="2"></rect>
-              <line x1="8" y1="6" x2="16" y2="6"></line>
-              <line x1="8" y1="10" x2="16" y2="10"></line>
-              <line x1="8" y1="14" x2="16" y2="14"></line>
-              <line x1="8" y1="18" x2="16" y2="18"></line>
-            </svg>
-            კალკულატორი
-          </button>
-
-          <!-- Input Fields -->
-          <div class="input-group">
-            <label class="input-label" id="pointsLabel">
-              გასაცემი PLUS ქულების რაოდენობა
-            </label>
-            <div class="input-container">
-              <input
-                type="number"
-                id="plusPoints"
-                value="400"
-                oninput="calculateConversion()"
-                class="input-field"
+              <img src="img/linkedin.webp" alt="linkedin logo" loading="lazy" />
+            </a>
+            <a href="https://t.me/bitcoin_dca_with_karl" target="_blank">
+              <img src="img/telegram.webp" alt="telegram logo" loading="lazy" />
+            </a>
+            <a
+              href="https://www.instagram.com/bitcoindcawithkarl?igsh=ajA3OTMza3FrMHV1"
+              target="_blank"
+            >
+              <img
+                src="img/instagram.webp"
+                alt="instagram logo"
+                loading="lazy"
               />
+<<<<<<< HEAD
               <span class="input-suffix">ქულა</span>
             </div>
           </div>
@@ -146,45 +628,220 @@
           <!-- Conversion Rate -->
           <div class="conversion-rate">
             <p>400 Plus ქულა = 1.01 ₾</p>
+=======
+            </a>
+            <a
+              href="https://www.youtube.com/@BitcoinDCAwithKarl"
+              target="_blank"
+            >
+              <img src="img/youtube.webp" alt="youtube logo" loading="lazy" />
+            </a>
+            <a
+              href="https://www.tiktok.com/@bitcoindcawithkarl?_t=ZS-8zEP84GrMxO&_r=1"
+              target="_blank"
+            >
+              <img src="img/tiktok.webp" alt="tik-tok logo" loading="lazy" />
+            </a>
+>>>>>>> 06e3eb953c56185b2c822f895ce4a3e76a38ec1e
           </div>
         </div>
+        <div class="card pad">
+          <h3 data-translate="about.how_works"></h3>
+          <ol class="howtoinstruction">
+            <li data-translate="about.step1"></li>
+            <li data-translate="about.step2"></li>
+            <li data-translate="about.step3"></li>
+          </ol>
+          <p class="hint" data-translate="about.privacy"></p>
+        </div>
+      </section>
 
-        <!-- How It Works Section -->
-        <div class="info-section">
-          <h2 class="info-title">როგორ მუშაობს?</h2>
-          <div class="steps-grid">
-            <div class="step">
-              <div class="step-number">1</div>
-              <h3 class="step-title">დაგვირეკეთ</h3>
-              <p class="step-description">
-                დაურეკეთ მითითებულ ნომერზე და შეგვატყობინეთ ქულების რაოდენობა
-              </p>
-            </div>
-            <div class="step">
-              <div class="step-number">2</div>
-              <h3 class="step-title">დაველით</h3>
-              <p class="step-description">
-                ჩვენი ოპერატორი დააფიქსირებს თქვენს მოთხოვნას
-              </p>
-            </div>
-            <div class="step">
-              <div class="step-number">3</div>
-              <h3 class="step-title">მიიღეთ ფული</h3>
-              <p class="step-description">
-                ლარი გადმოირიცხება თქვენს ანგარიშზე რამდენიმე წუთში
-              </p>
-            </div>
+      <section class="card pad wrap clearfix explain">
+        <section id="what-is">
+          <h2 data-translate="explain.program"></h2>
+          <h3 data-translate="explain.what_is"></h3>
+          <p data-translate="explain.description"></p>
+          <ul>
+            <li data-translate="explain.benefit1"></li>
+            <li data-translate="explain.benefit2"></li>
+            <li data-translate="explain.benefit3"></li>
+          </ul>
+        </section>
+
+        <section id="how-to-collect">
+          <h3 data-translate="explain.how_collect"></h3>
+          <p data-translate="explain.collect_intro"></p>
+          <h4 data-translate="explain.method1"></h4>
+          <p data-translate="explain.method1_desc"></p>
+          <h4 data-translate="explain.method2"></h4>
+          <p data-translate="explain.method2_desc"></p>
+          <h4 data-translate="explain.method3"></h4>
+          <p data-translate="explain.method3_desc"></p>
+          <h4 data-translate="explain.method4"></h4>
+          <p data-translate="explain.method4_desc"></p>
+        </section>
+
+        <section id="how-to-use">
+          <h3 data-translate="explain.how_use"></h3>
+          <p data-translate="explain.use_intro"></p>
+          <h4 data-translate="explain.exchange_title"></h4>
+          <p data-translate="explain.exchange_desc"></p>
+          <ol>
+            <li data-translate="explain.step1"></li>
+            <li data-translate="explain.step2"></li>
+            <li data-translate="explain.step3"></li>
+          </ol>
+
+          <h4 data-translate="explain.stores_title"></h4>
+          <p data-translate="explain.stores_desc"></p>
+
+          <h4 data-translate="explain.discounts_title"></h4>
+          <p data-translate="explain.discounts_desc"></p>
+
+          <h4 data-translate="explain.tourism_title"></h4>
+          <p data-translate="explain.tourism_desc"></p>
+
+          <div class="note" data-translate="explain.l_package"></div>
+        </section>
+
+        <section id="check-balance">
+          <h3 data-translate="explain.check_balance"></h3>
+          <ul>
+            <li data-translate="explain.mobile_bank"></li>
+            <li data-translate="explain.internet_bank"></li>
+            <li data-translate="explain.call_center"></li>
+          </ul>
+        </section>
+
+        <section id="partners">
+          <h3 data-translate="explain.partners_title"></h3>
+          <p data-translate="explain.partners_desc"></p>
+        </section>
+      </section>
+
+      <section id="faq">
+        <h3 data-translate="faq.title"></h3>
+        <details>
+          <summary data-translate="faq.safe"></summary>
+          <p data-translate="faq.safe_answer"></p>
+        </details>
+        <details>
+          <summary data-translate="faq.time"></summary>
+          <p data-translate="faq.time_answer"></p>
+        </details>
+        <details>
+          <summary data-translate="faq.how_sell"></summary>
+          <p class="clickable" data-translate="faq.how_sell_answer"></p>
+        </details>
+        <details>
+          <summary data-translate="faq.where_money"></summary>
+          <p data-translate="faq.where_money_answer"></p>
+        </details>
+        <details>
+          <summary data-translate="faq.rate"></summary>
+          <p data-translate="faq.rate_answer"></p>
+        </details>
+        <details>
+          <summary data-translate="faq.range"></summary>
+          <p data-translate="faq.range_answer"></p>
+        </details>
+      </section>
+
+      <section id="contact" class="two">
+        <div class="card pad">
+          <h3 data-translate="contact.title"></h3>
+          <p data-translate="contact.name"></p>
+          <p data-translate="contact.phone"></p>
+          <div class="social-networks">
+            <a href="https://www.facebook.com/plusqulebi/" target="_blank">
+              <img src="img/facebook.webp" alt="facebook logo" loading="lazy" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/karlo-tevzadze-b301b0175/"
+              target="_blank"
+            >
+              <img src="img/linkedin.webp" alt="linkedin logo" loading="lazy" />
+            </a>
+            <a href="https://t.me/bitcoin_dca_with_karl" target="_blank">
+              <img src="img/telegram.webp" alt="telegram logo" loading="lazy" />
+            </a>
+            <a href="https://www.instagram.com/plusqulebi.ge/" target="_blank">
+              <img
+                src="img/instagram.webp"
+                alt="instagram logo"
+                loading="lazy"
+              />
+            </a>
+            <a href="https://www.youtube.com/@plusqulebi" target="_blank">
+              <img src="img/youtube.webp" alt="youtube logo" loading="lazy" />
+            </a>
+            <a href="https://www.tiktok.com/@plusqulebi.ge" target="_blank">
+              <img src="img/tiktok.webp" alt="tik-tok logo" loading="lazy" />
+            </a>
           </div>
         </div>
-      </div>
+        <div class="card pad">
+          <h3 data-translate="partners.title"></h3>
+          <p class="partners-card" data-translate="partners.description"></p>
+        </div>
+      </section>
     </main>
 
     <!-- Online Indicator -->
     <div class="online-indicator">
       <div class="online-dot"></div>
-      <span>24/7-ზე ხელმისაწვდომია</span>
+      <span data-translate="online.indicator"></span>
     </div>
 
-    <script src="script.js"></script>
+    <footer>
+      <div class="container footer">
+        <div>© <span id="y"></span> PLUSქულები • ყველა უფლება დაცულია</div>
+        <div class="muted">
+          <a href="#">Terms</a> • <a href="#">Privacy</a> •
+          <a href="#">AML/KYC</a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="messenger-widget">
+      <a href="https://m.me/1896817940403108" target="_blank">
+        <img src="img/messenger.webp" alt="messenger logo" />
+      </a>
+    </div>
+
+    <div
+      class="wa-panel"
+      id="wa-panel"
+      role="dialog"
+      aria-label="WhatsApp chat panel"
+      aria-hidden="true"
+    >
+      <div class="wa-header">WhatsApp</div>
+      <div class="wa-body" data-translate="wa.message"></div>
+      <div class="wa-input">
+        <input
+          id="wa-text"
+          type="text"
+          placeholder=""
+          data-translate-placeholder="wa.placeholder"
+        />
+        <button class="wa-send" id="wa-send" data-translate="wa.send"></button>
+      </div>
+    </div>
+
+    <button
+      class="wa-launcher"
+      id="wa-launcher"
+      aria-label="Open WhatsApp chat"
+    >
+      <img src="img/whatsapp.webp" alt="whatsapp logo" />
+    </button>
+
+    <script src="js/script_1.js"></script>
+    <script src="js/text-content.js"></script>
+    <script src="js/script_2.js"></script>
+
+    <script src="js/seo-optimization.js"></script>
+    <!-- Advanced Language Toggle System with SEO -->
   </body>
 </html>
