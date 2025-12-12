@@ -1,4 +1,4 @@
-const rate = { plus: 400, gel: 1.1 }; // editable baseline
+const rate = { plus: 400, gel: 1.01 }; // editable baseline
 const rateText = document.getElementById("rateText");
 const plusAmount = document.getElementById("plusAmount");
 const gelAmount = document.getElementById("gelAmount");
@@ -50,34 +50,34 @@ copyId2.addEventListener("click", () => {
 });
 
 // mock trades
-var trades = []
+var trades = [];
 fetch("lastTrans.json")
-  .then(response => {
+  .then((response) => {
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
     return response.json(); // Parse JSON
   })
-  .then(data => {
-    trades = data
-    
-  const list = document.getElementById("trades");
-  trades.forEach((t) => {
-    const el = document.createElement("div");
-    el.className = "item";
-    el.innerHTML = `<div><strong>${t.name}</strong><div class="muted">${
-      t.time
-    }</div></div>
+  .then((data) => {
+    trades = data;
+
+    const list = document.getElementById("trades");
+    trades.forEach((t) => {
+      const el = document.createElement("div");
+      el.className = "item";
+      el.innerHTML = `<div><strong>${t.name}</strong><div class="muted">${
+        t.time
+      }</div></div>
                         <div><div class="muted">PLUS ქულა:</div><strong>${fmt(
                           t.plus
                         )}</strong></div>
                         <div><div class="muted">₾ თანხა:</div><strong>${fmt(
                           t.gel
                         )} ₾</strong></div>`;
-    list.appendChild(el);
-  });
+      list.appendChild(el);
+    });
   })
-  .catch(error => {
+  .catch((error) => {
     console.error("Error fetching JSON:", error);
   });
 
@@ -88,9 +88,7 @@ if (statDealsEl) {
   statDealsEl.textContent = trades.length;
 }
 if (statPointsEl) {
-  statPointsEl.textContent = fmt(
-    trades.reduce((a, b) => a + b.plus, 0)
-  );
+  statPointsEl.textContent = fmt(trades.reduce((a, b) => a + b.plus, 0));
 }
 
 // misc
