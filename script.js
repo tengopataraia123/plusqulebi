@@ -115,8 +115,8 @@ function calculateConversion() {
 
   const plusPoints = parseFloat(plusPointsInput.value) || 0;
 
-  // Conversion rate: 400 Plus points = 1.10 GEL
-  const conversionRate = 1.1 / 400;
+  // Conversion rate: 400 Plus points = 1.01 GEL
+  const conversionRate = 1.01 / 400;
   const lariAmount = (plusPoints * conversionRate).toFixed(2);
 
   lariAmountInput.value = lariAmount;
