@@ -22,7 +22,7 @@ const translations = {
     // Calculator
     "calc.send_points":
       "გამოგზავნეთ მითითებულ პირად ნომერზე ნებისმიერი ოდენობის PLUS ქულა:",
-    "calc.receive_value": "მიიღეთ ღირებულების 101% თითოეულ გაცვლაზე",
+    "calc.receive_value": "მიიღეთ ღირებულების 110% თითოეულ გაცვლაზე",
     "calc.calculator": "კალკულატორი",
     "calc.plus_amount": "Plus ქულების რაოდენობა",
     "calc.plus_placeholder": "მაგ: 400",
@@ -49,7 +49,7 @@ const translations = {
       "თანხა დაახლოებით 1 წუთში აგესახებათ გადმომრიცხავის პირად ანგარიშზე.",
     "faq.rate": "რა არის კურსი?",
     "faq.rate_answer":
-      "პერიოდულობის მიხედვით იცვლება. დასაწყისისთვის კურსი არის 400 Plus = 1.01 ₾. კურსი შეგიძლია გადაამოწმოთ ჩვენს კალკულატორზე.",
+      "პერიოდულობის მიხედვით იცვლება. დასაწყისისთვის კურსი არის 400 Plus = 1.10 ₾. კურსი შეგიძლია გადაამოწმოთ ჩვენს კალკულატორზე.",
     "faq.range": "არსებობს გადმორიცხვის მინიმალური და მაქსიმალური ზღვარი?",
     "faq.range_answer":
       "მინიმალური ზღვარი არის 40 PLUS ქულა. უფრო ნაკლებს ნუ გადმორიცხავთ, დღის ბოლოს ყველა 40 ქულაზე ნაკლები გადმორიცხვა უკან ბრუნდება. მაქსიმალური ზღვარი არ არსებობს, მაგრამ შეიძლება მოხდეს ისეთი რამ ბალანსზე თანხა ამოგვეწუროს და დინამიურად შევსება ვერ მოვასწროთ ასეთ შემთხვევაში PLUS ქულები უკან დაგიბრუნდებათ. ნებისმიერი გაუგებრობის შემთხვევაში შეგიძლიათ ჩვენი ნებისმიერი ცხელი ხაზი გამოიყენოთ და დაგვიკავშირდეთ.",
@@ -202,7 +202,7 @@ const translations = {
     // Calculator
     "calc.send_points":
       "Send any amount of PLUS points to the specified personal number:",
-    "calc.receive_value": "Receive 101% of the value for each exchange",
+    "calc.receive_value": "Receive 110% of the value for each exchange",
     "calc.calculator": "Calculator",
     "calc.plus_amount": "Number of Plus points",
     "calc.plus_placeholder": "e.g: 400",
@@ -229,7 +229,7 @@ const translations = {
       "The amount will be credited to the transferor's personal account in about 1 minute.",
     "faq.rate": "What is the rate?",
     "faq.rate_answer":
-      "It varies depending on the period. The starting rate is 400 Plus = 1.01 ₾. You can check the rate on our calculator.",
+      "It varies depending on the period. The starting rate is 400 Plus = 1.10 ₾. You can check the rate on our calculator.",
     "faq.range": "Is there a minimum and maximum transfer limit?",
     "faq.range_answer":
       "The minimum limit is 40 PLUS points. Do not transfer less than that, at the end of the day all transfers less than 40 points will be returned. There is no maximum limit, but it may happen that we run out of money on the balance and we will not be able to replenish dynamically, in which case the PLUS points will be returned to you. In case of any misunderstanding, you can use any of our hotlines and contact us.",
