@@ -12,6 +12,13 @@ services:
     # Coolify's reverse proxy routes the configured domain to this port.
     expose:
       - "80"
+    environment:
+      # Coolify "magic" variable: route the domain to port 80 of this service.
+      # EXPOSE alone is unreliable for compose port detection, which causes the
+      # Traefik "no available server" (503) error. Leave the value empty to let
+      # Coolify generate a domain, or set your own, e.g.:
+      #   - SERVICE_FQDN_WEB_80=plusqulebi.ge
+      - SERVICE_FQDN_WEB_80
     volumes:
       # Serve lastTrans.json straight from the host file. This file is updated
       # out-of-band on the host and is NOT part of the repo/image.

@@ -57,6 +57,24 @@ no redeploy needed.
 
 The container exposes port **80**; Coolify's proxy routes the configured domain to it.
 
+## Troubleshooting: "no available server"
+
+This is Traefik's 503 — the domain route exists but it has no healthy backend to
+forward to. For this compose deployment, check in order:
+
+1. **Port not detected (most common for compose).** Traefik must know to use port
+   80. The `SERVICE_FQDN_WEB_80` env var in `docker-compose.yml` declares this.
+   Make sure the domain in the Coolify UI is `https://plusqulebi.ge` with **no
+   `:80` suffix**, and that the app's port setting is `80`.
+2. **Container unhealthy.** Traefik won't route to an unhealthy container. On the
+   server: `docker ps --format "table {{.Names}}\t{{.Status}}"` — look for
+   `(unhealthy)`. If so, inspect logs (`docker logs <name>`) or temporarily remove
+   the `healthcheck:` block and redeploy to isolate it.
+3. **Still starting / just redeployed.** The 503 is transient during the
+   `start_period`; wait ~15s and retry.
+4. **Domain / DNS.** Confirm the domain is spelled correctly in Coolify and its
+   DNS A record points at the server IP.
+
 ## Local sanity check (optional)
 
 ```bash
