@@ -24,7 +24,7 @@ services:
       # out-of-band on the host and is NOT part of the repo/image.
       # The host file MUST exist before the first deploy (see DEPLOY.md),
       # otherwise Docker creates a directory in its place.
-      - /home/Valus/lastTrans.json:/usr/local/apache2/htdocs/lastTrans.json:ro
+      - /home/Valus/lastTrans.json:/usr/share/nginx/html/lastTrans.json:ro
     healthcheck:
       test: ["CMD", "wget", "-q", "--spider", "http://localhost:80/"]
       interval: 30s

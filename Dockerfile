@@ -1,32 +1,17 @@
-# PLUSQULEBI.GE — static site served by Apache httpd
-# Apache is used (instead of nginx) so the existing .htaccess
-# (gzip, caching, security headers, MIME types, rewrites) works as-is.
-FROM httpd:2.4-alpine
+# PLUSQULEBI.GE — static site served by nginx
+FROM nginx:1.27-alpine
 
-# Enable the Apache modules the .htaccess relies on.
-# These ship with the image but are commented out by default.
-RUN sed -i \
-    -e 's|^#\(LoadModule rewrite_module .*\)|\1|' \
-    -e 's|^#\(LoadModule deflate_module .*\)|\1|' \
-    -e 's|^#\(LoadModule expires_module .*\)|\1|' \
-    -e 's|^#\(LoadModule headers_module .*\)|\1|' \
-    /usr/local/apache2/conf/httpd.conf
+# Site config (gzip, caching, security headers, HTTPS redirect) replaces the default.
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Allow per-directory .htaccess overrides in the document root, disable directory
-# listing, and silence the "fully qualified domain name" startup warning.
-RUN cat >> /usr/local/apache2/conf/httpd.conf <<'EOF'
-
-ServerName localhost
-
-<Directory "/usr/local/apache2/htdocs">
-    Options FollowSymLinks
-    AllowOverride All
-    Require all granted
-</Directory>
-EOF
-
-# Ship the static site. lastTrans.json is intentionally NOT copied in —
-# it is bind-mounted from the host at runtime (see docker-compose.yml).
-COPY . /usr/local/apache2/htdocs/
+# Ship only the static assets. Copying paths explicitly keeps config files
+# (nginx.conf, Dockerfile, .htaccess, ...) out of the served web root.
+# lastTrans.json is intentionally NOT copied — it is bind-mounted from the host
+# at runtime (see docker-compose.yml).
+COPY index.html manifest.json robots.txt sitemap.xml /usr/share/nginx/html/
+COPY css/   /usr/share/nginx/html/css/
+COPY js/    /usr/share/nginx/html/js/
+COPY fonts/ /usr/share/nginx/html/fonts/
+COPY img/   /usr/share/nginx/html/img/
 
 EXPOSE 80
