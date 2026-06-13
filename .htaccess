@@ -7,7 +7,12 @@
 RewriteEngine On
 
 # Force HTTPS redirect
-RewriteCond %{HTTPS} off
+# Behind a reverse proxy (e.g. Coolify/Traefik) TLS is terminated at the edge and
+# the container only ever sees plain HTTP, so %{HTTPS} is always "off". Keying the
+# redirect off X-Forwarded-Proto instead avoids an infinite redirect loop and lets
+# the health check (which sends no such header) succeed. Enable "Force HTTPS" /
+# Let's Encrypt in Coolify so the proxy upgrades the connection and sets this header.
+RewriteCond %{HTTP:X-Forwarded-Proto} =http
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Remove www (optional - uncomment if you want to remove www)

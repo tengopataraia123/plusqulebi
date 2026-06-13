@@ -1,0 +1,12 @@
+# Keep the image limited to what Apache should serve.
+.git
+.gitignore
+.vscode
+.dockerignore
+Dockerfile
+docker-compose.yml
+DEPLOY.md
+*.sample.json
+
+# Never bake the live transactions file into the image — it is host-mounted.
+lastTrans.json
