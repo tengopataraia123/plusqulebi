@@ -1,21 +1,24 @@
 # Deploying PLUSQULEBI.GE on Coolify
 
-This is a static site served by Apache `httpd`. Apache is used (rather than nginx)
-so the existing [`.htaccess`](.htaccess) — gzip, long-term caching, security
-headers, MIME types and rewrites — keeps working unchanged.
+This is a static site served by **nginx**. The `nginx.conf` reproduces what the
+original Apache [`.htaccess`](.htaccess) did — gzip, long-term caching, security
+headers (CSP/HSTS) and blocking of hidden files. (The `.htaccess` itself is no
+longer used and is not shipped into the image.)
 
 `lastTrans.json` (the "recent trades" feed) is **not** part of the repo or the
 Docker image. It is served directly from a file on the host at
-`/home/Valus/lastTrans.json`, bind-mounted into the container's web root. This
-lets you update the trades feed on the host without rebuilding or redeploying.
+`/home/Valus/lastTrans.json`, bind-mounted into the container's web root
+(`/usr/share/nginx/html/lastTrans.json`). This lets you update the trades feed on
+the host without rebuilding or redeploying.
 
 ## Files added for deployment
 
 | File                 | Purpose                                                             |
 | -------------------- | ------------------------------------------------------------------- |
-| `Dockerfile`         | Apache `httpd:2.4-alpine`, enables required modules, copies the site |
+| `Dockerfile`         | `nginx:1.27-alpine`; loads `nginx.conf` and copies the static assets |
+| `nginx.conf`         | gzip, caching, security headers, proxy-aware HTTPS redirect          |
 | `docker-compose.yml` | Coolify deployment + host bind-mount for `lastTrans.json`           |
-| `.dockerignore`      | Keeps build artifacts/config out of the image                       |
+| `.dockerignore`      | Keeps build context lean                                            |
 | `lastTrans.sample.json` | Example of the JSON shape the front end expects                  |
 
 ## One-time host setup (REQUIRED before the first deploy)
@@ -51,8 +54,8 @@ no redeploy needed.
    branch (`main`). Coolify uses `docker-compose.yml`, which builds the `Dockerfile`.
 2. Set the **Domain / FQDN** for the `web` service (e.g. `https://plusqulebi.ge`).
 3. Enable **HTTPS / Let's Encrypt** (and "Force HTTPS"). Coolify's Traefik proxy
-   terminates TLS and forwards `X-Forwarded-Proto`, which the `.htaccess` HTTPS
-   redirect now keys off of (so there is no redirect loop).
+   terminates TLS and forwards `X-Forwarded-Proto`, which the `nginx.conf` HTTPS
+   redirect keys off of (so there is no redirect loop).
 4. **Deploy.**
 
 The container exposes port **80**; Coolify's proxy routes the configured domain to it.
@@ -82,7 +85,7 @@ forward to. For this compose deployment, check in order:
 cp lastTrans.sample.json /tmp/lastTrans.json
 docker build -t plusqulebi .
 docker run --rm -p 8080:80 \
-  -v /tmp/lastTrans.json:/usr/local/apache2/htdocs/lastTrans.json:ro \
+  -v /tmp/lastTrans.json:/usr/share/nginx/html/lastTrans.json:ro \
   plusqulebi
 # open http://localhost:8080
 ```

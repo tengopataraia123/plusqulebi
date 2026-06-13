@@ -1,4 +1,5 @@
-# Keep the image limited to what Apache should serve.
+# Keep the build context lean. (The Dockerfile copies only the static assets,
+# so config files are never served even if present in the context.)
 .git
 .gitignore
 .vscode
