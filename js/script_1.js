@@ -1,4 +1,4 @@
-const rate = { plus: 400, gel: 1.1 }; // editable baseline
+const rate = { plus: 400, gel: 1.3 }; // editable baseline
 const rateText = document.getElementById("rateText");
 const plusAmount = document.getElementById("plusAmount");
 const gelAmount = document.getElementById("gelAmount");
