@@ -22,7 +22,7 @@ const translations = {
     // Calculator
     "calc.send_points":
       "გამოგზავნეთ მითითებულ პირად ნომერზე ნებისმიერი ოდენობის PLUS ქულა:",
-    "calc.receive_value": "მიიღეთ ღირებულების 110% თითოეულ გაცვლაზე",
+    "calc.receive_value": "მიიღეთ ღირებულების 130% თითოეულ გაცვლაზე",
     "calc.calculator": "კალკულატორი",
     "calc.plus_amount": "Plus ქულების რაოდენობა",
     "calc.plus_placeholder": "მაგ: 400",
@@ -202,7 +202,7 @@ const translations = {
     // Calculator
     "calc.send_points":
       "Send any amount of PLUS points to the specified personal number:",
-    "calc.receive_value": "Receive 110% of the value for each exchange",
+    "calc.receive_value": "Receive 130% of the value for each exchange",
     "calc.calculator": "Calculator",
     "calc.plus_amount": "Number of Plus points",
     "calc.plus_placeholder": "e.g: 400",
